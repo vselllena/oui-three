@@ -1,0 +1,31 @@
+
+//scene 
+const scene = new THREE.Scene()
+
+const geometry = new THREE.BoxGeometry(1, 1, 1)
+const material = new THREE.MeshBasicMaterial({ color:'blue'})
+const mesh = new THREE.Mesh(geometry, material)
+scene.add(mesh)
+
+
+
+//sizes 
+const sizes = { 
+    width: 800,
+    height: 600 
+}
+
+//camera
+const camera = new THREE.PerspectiveCamera(75, 800 / 600)
+camera.position.z = 3
+scene.add(camera)
+
+//render 
+const canvas = document.querySelector('canvas.webgl')
+const renderer = new THREE.WebGLRenderer ({
+    canvas: canvas
+})
+
+renderer.setSize( 800, 600)
+
+renderer.render(scene, camera)
